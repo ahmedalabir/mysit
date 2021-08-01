@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <style>
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    background-image: radial-gradient( circle farthest-corner at 18.7% 37.8%,  rgba(250,250,250,1) 0%, rgba(225,234,238,1) 90% );
+    
+    
+}
+    .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin:40px 0;
+    
+    }
+.container .card
+{
+    position: relative;
+    min-width: 320px;
+    height: 440px;
+    box-shadow: inset 5px 5px 5px rgba(0,0,0,0.2),
+    inset -5px -5px 15px rgba(255,255,255,0.1),
+    5px 5px 15px rgba(0,0,0,0.3),
+    -5px -5px 5px rgba(255,255,255,0.1);
+border-radius: 15px;
+margin: 30px;
+}
+
+
+.container .card .box1
+{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    background: #2a2b2f;
+    border: 2px solid #1e1f23;
+    border-radius: 15px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.5);
+    transition: 0.5s; 
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.container .card .box1::before 
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: rgba(255,255,255,0.1);
+        pointer-events: none;
+}
+
+.container .card .box1:hover
+{
+    transform: translateY(-50px);
+    box-shadow: 0 40px 70px rgba(0,0,0,0.5);
+}
+.container .card .box1 .content
+{
+    padding: 20px;
+    text-align: center;
+    
+    
+
+}
+.container .card .box1 .content h2
+{
+    position: absolute;
+    top: -10px;
+    right: 30px;
+    font-size: 8em;
+    color: rgba(255,255,255,0.05);
+
+}
+.container .card .box1 .content h3
+{
+    
+    font-size: 1.8em;
+    color: white;
+    z-index: 1;
+    transition: 0.5s;
+}
+.container .card .box1 .content p
+{
+    font-weight: 300;
+    font-size: 10px;
+    color: white;
+    font-family: monospace;
+    z-index: 1;
+    transition: 0.5s;
+}
+.container .card .box1 .content a
+{
+    position: relative;
+    display: inline-block;
+    padding: 8px 20px;
+    background: #000;
+    margin-top: 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 400;
+    color: #fff;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.container .card:nth-child(1) .box1 .content a
+{
+    background: #2196f3;
+}
+.container .card:nth-child(2) .box1 .content a
+{
+    background: #e91e63;
+}
+.container .card:nth-child(3) .box1 .content a
+{
+    background: #97dc47;
+}
+.container .card:nth-child(4) .box1 .content a
+{
+    background: #f4f816;
+}
+:root {
+  --home-bg-color: #f2f3ee;
+  --menu-bg-color: #cbcbc2;
+  --silde-btn-border: #808080;
+  --slide-btn-bg: #ddf2db;
+  --slide-btn-hoverbg: #f1fff1;
+  --alpha-green: rgba(33, 96, 47, 0.51);
+  --icon-hover-color: #344a39;
+  --icon-hover-bg: #709680;
+  --text-color: #616161;
+  --border-color: #709680;
+  --heading-color: #344a39;
+  --box-shadow-color: #b5b5ac;
+  --lightest-green: #86a58d;
+  --light-green: #9ab09a;
+  --dark-green: rgba(52, 74, 57, 0.86);
+  --box-shadow: 0px 0px 3px 5px var(--box-shadow-color);
+  --border-radius: 60px 5px;
+  --fade-green: rgba(57, 87, 64, 0.55);
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+body,
+html {
+  width: 100%;
+  font-size: 10px;
+  color: var(--text-color);
+  font-weight: normal;
+  font-family: sans-serif;
+  background-color: var(--home-bg-color);
+}
+
+#ham-menu {
+  display: none;
+}
+label[for="ham-menu"] {
+  display: block;
+  position: fixed;
+  top: 24px;
+  left: 20px;
+  z-index: 999;
+  width: 60px;
+  height: 60px;
+  background-color: var(--home-bg-color);
+  border-radius: 15px;
+  border: 2px solid var(--border-color);
+}
+.ham-menu {
+  width: 50vw;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  visibility: hidden;
+  transform: translate(-110%);
+  z-index: 998;
+  background-color: var(--lightest-green);
+  transition: 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ham-menu > ul {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  padding: 20px;
+  height: 50%;
+}
+.ham-menu > ul > li {
+  font-size: 5rem;
+  white-space: nowrap;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  color: rgb(97, 97, 97);
+}
+#ham-menu:checked + label {
+  background-color: transparent;
+  border-color: var(--dark-green);
+}
+#ham-menu:checked ~ div.ham-menu {
+  transform: translate(0px);
+  visibility: visible;
+}
+.full-page-green {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--dark-green);
+  z-index: 997;
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+  transition: 500ms;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+#ham-menu:checked ~ div.full-page-green {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+[for="ham-menu"] > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+  align-items: center;
+}
+.menu-line {
+  display: block;
+  width: 17px;
+  height: 2px;
+  margin: 10px 0 5px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  background-color: var(--border-color);
+  transition: 500ms;
+  transform-origin: right center;
+}
+[for="ham-menu"] > div > span:nth-child(4),
+[for="ham-menu"] > div > span:nth-child(5),
+[for="ham-menu"] > div > span:nth-child(6) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  transform-origin: left center;
+}
+#ham-menu:checked + label span {
+  background-color: var(--dark-green);
+}
+#ham-menu:checked + label span:nth-child(2),
+#ham-menu:checked + label span:nth-child(5) {
+  transform: scale(0);
+}
+#ham-menu:checked + label span:nth-child(1) {
+  transform: translateY(17px) rotate(45deg);
+}
+#ham-menu:checked + label span:nth-child(4) {
+  transform: translateY(17px) rotate(-45deg);
+}
+#ham-menu:checked + label span:nth-child(3) {
+  transform: translateY(-17px) rotate(-45deg);
+}
+#ham-menu:checked + label span:nth-child(6) {
+  transform: translateY(-17px) rotate(45deg);
+}
+p {
+  display: inline;
+  font-size: 1.8rem;
+  line-height: 1.5em;
+  word-spacing: 0.5em;
+  letter-spacing: 0.1em;
+  font-family: "OpenSansCondensed-Light";
+}
+a {
+  font-size: 1em;
+   
+  line-height: 1.5em;
+  word-spacing: 0.5em;
+  letter-spacing: 0.1em;
+  font-family: "OpenSansCondensed-Light";
+  display: inline;
+  font-weight: bold;
+  padding: 7px;
+  color: var(--icon-hover-bg);
+}
+a::after {
+  content: "\e806";
+  display: inline-block;
+  font-family: fontello;
+  padding: 5px;
+  font-size: 1.6rem;
+  transform: rotate(-90deg);
+}
+.text {
+  font-size: 2.5rem;
+  line-height: 1.5em;
+  word-spacing: 0.5em;
+  letter-spacing: 0.1em;
+  font-family: "OpenSansCondensed-Bold", sans-serif;
+}
+.title {
+  font-size: 3rem;
+  line-height: 1.5em;
+  word-spacing: 0.5em;
+  letter-spacing: 0.1em;
+  font-family: "OpenSansCondensed-Bold", sans-serif;
+  color: var(--icon-hover-bg);
+  padding: 10px;
+}
+.heading {
+  font-size: 6rem;
+  line-height: 1.5em;
+  word-spacing: 0.5em;
+  letter-spacing: 0.1em;
+  font-family: "Patua One";
+}
+.centre-text {
+  text-align: center;
+}
+.bold-text {
+  font-weight: bold;
+}
+
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="ham-menu">
+<label for="ham-menu">
+  <div class="hide-des">
+    <span class="menu-line"></span>
+    <span class="menu-line"></span>
+    <span class="menu-line"></span>
+    <span class="menu-line"></span>
+    <span class="menu-line"></span>
+    <span class="menu-line"></span>
+  </div>
+
+</label>
+<div class="full-page-green"></div>
+<div class="ham-menu">
+  <ul class="centre-text bold-text" >
+      <li><a href="#"> Services </a></li>
+    <li><a href="index.html"> Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><strike>Support</strike></li>
+     
+
+  </ul>
+</div>
+
+
+
+    <div class="container">
+        <div class="card">
+            <div class="box1">
+                <div class="content">
+                    <h2>01</h2>
+                    <h3>Web Development</h3>
+                    <br> <img style="width:50%;height:50%;" src="images/seo.png" alt=""><br><p style="font-size: 20px;">Create a beautiful and responsive Website using HTML,CSS,JS + PHP(extra)</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="box1">
+                <div class="content">
+                    <h2>02</h2>
+                    <h3>Android Application Development</h3>
+                 <br><img style="width: 50%;height: 50%;" src="images/mobile-app.png" alt=""><br><br>   <p style="font-size: 20px;">Develop an app for Android/Smartphone</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="box1">
+                <div class="content">
+                    <h2>03</h2>
+                    <h3>Graphic Designer</h3>
+                   <br><img style="width: 50%;height: 50%;" src="images/graphic-designer.png" alt=""><br><br><br> 
+                    <p style="font-size:20px;font-family: monospace;font-weight: bolder;">Design a <ul style="color: white;font-size: 15px;"><li>Logo</li><Li>Banner</Li><li>Thumbnail</li><li>Hand drawn or written notes</li></ul></p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="box1">
+                <div class="content">
+                    <h2>04</h2>
+                    <h3>Data Entry</h3> <br><img style="width:50%;height:50%;" src="images/excel.png" alt=""><br><br>
+                    <p style="font-size:20px;"> Any <br> Data Entry/mining/ <br> scrapping/management using Excel/Google sheets/Any</p>
+                    <a href="#" >Read More</a>
+                </div>
+            </div>
+        </div>
+        </div>
+</body>
+</html>
